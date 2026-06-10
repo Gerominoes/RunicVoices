@@ -1,0 +1,10 @@
+{
+  "name": "RunicVoice",
+  "version_number": "0.1.0",
+  "website_url": "",
+  "description": "Adds Valheim-native runic voice abilities inspired by shout-style combat mechanics.",
+  "dependencies": [
+    "denikson-BepInExPack_Valheim",
+    "ValheimModding-Jotunn"
+  ]
+}
