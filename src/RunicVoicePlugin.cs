@@ -19,6 +19,7 @@ public sealed class RunicVoicePlugin : BaseUnityPlugin
     public const string PluginName = "Runic Voice";
     public const string PluginVersion = "0.1.0";
     public const string ShoutButtonName = "RunicVoiceShout";
+    public const string RegisteredShoutButtonName = ShoutButtonName + "!" + PluginGuid;
 
     internal static ManualLogSource Log = null!;
 
@@ -56,7 +57,7 @@ public sealed class RunicVoicePlugin : BaseUnityPlugin
         if (ZInput.instance == null)
             return;
 
-        if (!ZInput.GetButtonDown(ShoutButtonName))
+        if (!ZInput.GetButtonDown(RegisteredShoutButtonName))
             return;
 
         TryCastActiveAbility();
@@ -65,6 +66,7 @@ public sealed class RunicVoicePlugin : BaseUnityPlugin
     private static void RegisterInput()
     {
         // The config-backed button lets players remap the shout key through the BepInEx config file.
+        // Jotunn registers this as RunicVoiceShout!com.gerominoes.runicvoice in ZInput.
         ButtonConfig shoutButton = new()
         {
             Name = ShoutButtonName,
